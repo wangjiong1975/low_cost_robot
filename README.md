@@ -1,82 +1,95 @@
-# $250 Robot Arm
+主臂Leader Arm
 
-This repository contains the files to build and control a low-cost robot arm that costs about $250. You can also build a second robot arm (the leader arm) to control the other arm (the follower arm) that costs about $180, for a total of $430. The design of the leader is inspired by the [GELLO project](https://github.com/wuphilipp/gello_mechanical) but is simpler to build. Such a robot arm is well suited for [robot learning](https://x.com/alexkoch_ai/status/1756500716854841835?s=20). Two of those arms are also capable of [folding clothes](https://x.com/alexkoch_ai/status/1772750496174149708?s=20).
+![LeaderArm](pictures/LeaderArm.png)
 
-This robot arm uses Dynamixel XL430 and Dynamixel XL330 servo motors. The XL430 motors are almost twice as strong and are used for the first two joints.
-The XL330 motors are weaker but weigh only 18g each. This makes the arm very lightweight and fast.
-Dynamixel sells the U2D2 adapter to connect the servos to a computer. However, this is very expensive and the latency is very high. This build uses another cheaper adapter board instead.
-The robot arm can be controlled with the Dynamixel SDK: ```pip install dynamixel-sdk```
+### 材料列表Required Materials
 
-![Robot Arm](./pictures/robot_portait.jpg)
 
-## Follower Arm
+| 部件Part                                                        | Cost   | 购买链接Buying link（大陆版）                                                                                                                  | 规格说明Specs                                                                                            |
+| --------------------------------------------------------------- | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| 1. 6x Dynamixel XL330-M077<br /><br /><br /><br /><br /><br /> | ￥1290 | [https://item.taobao.com/item.htm?id=744329960663](https://item.taobao.com/item.htm?id=744329960663)                                           | ROBOTIS XL330-M077-T 单价人民215元，需要6套                                                             |
+| 2. XL330 Frame                                                  | ￥95   | [https://item.taobao.com/item.htm?id=647142811144](https://item.taobao.com/item.htm?id=647142811144)                                           | ROBOTIS FPX330-S101 4pcs-set                                                                            |
+| 3. XL330 Idler Wheel                                            | ￥100  | [https://item.taobao.com/item.htm?id=646782958666](https://item.taobao.com/item.htm?id=646782958666)                                           | ROBOTISFPX330-h101 4pcs-set                                                                              |
+| 4. Waveshare Serial Bus Servo Driver Board                      | ￥24   | [https://item.taobao.com/item.htm?id=738955630278](https://item.taobao.com/item.htm?id=738955630278)                                           |                                                                                                          |
+| 5. 5V Power Supply                                              | ￥11   | [https://item.taobao.com/item.htm?id=667744796993&skuId=4986955171356](https://item.taobao.com/item.htm?id=667744796993&skuId=4986955171356)   | 5V 2A 电源 10W 100-240V 交流/直流适配器,5V 2Amp 1500mA 1000mA 电源转换器,带 5.5mm x 2.5mm/2.1mm 直流插头 |
+| 6. Table Clamp                                                  | ￥17   | [https://detail.tmall.com/item.htm?id=668120504241&skuId=4983853090357](https://detail.tmall.com/item.htm?id=668120504241&skuId=4983853090357) | C 形夹,3 英寸(约 7.6 厘米)，1200磅力                                                                     |
+| Total                                                           | ￥1537 | （原网站是183美元，大约1323元，主要是进口运费贵了）                                                                                            |                                                                                                          |
 
-### Required Materials
+## 从臂Follower Arm
 
-| Part                          | Cost | Buying link                                    | Specs |
-|-------------------------------|------|------------------------------------------------| --- |
-| 2x Dynamixel XL430-W250       | $100 | https://www.robotis.us/dynamixel-xl430-w250-t/ | https://emanual.robotis.com/docs/en/dxl/x/xl430-w250/ |
-| 4x Dynamixel XL330-M288       | $96  | https://www.robotis.us/dynamixel-xl330-m288-t/ | https://emanual.robotis.com/docs/en/dxl/x/xl330-m288/|
-| XL330 Idler Wheel             | $10  | https://www.robotis.us/fpx330-h101-4pcs-set/   | **Note**: pack of four; three needed for  longer version pictured above (with elbow-to-wrist extension), two needed for shorter version shown in the [assembly video](https://youtu.be/RckrXOEoWrk)|
-| XL430 Idler Wheel             | $7   | https://www.robotis.us/hn11-i101-set/          | |
-| Waveshare Serial Bus Servo Driver Board | $10  | https://a.co/d/7C3RUYU                         | |
-| Voltage Reducer               | $10   | https://a.co/d/cy02ADW                         | **Note**: pack of six, only one needed per follower arm |
-| 12V Power Supply              | $12  | https://a.co/d/40o8uMN                         | |
-| Table Clamp                   | $6   | https://a.co/d/4KEiYdV                         | |
-| Wires                         | $7   | https://a.co/d/hQfk2cb                         | |
-| Total                         | $258 |                                                | |
+![FollowerArm](pictures/FollowerArm.png)
 
-There is usually a 10% discount code for the Robotis shop. It might also help to add some grip tape to the gripper (e.g. https://a.co/d/dW7BnEN). A USB-C cable is necessary to connect the servo driver board to a computer.
+### 材料列表Required Materials
 
-![follower](./pictures/follower_arm.png)
 
-### Assembly
+| 部件Part                                   | Cost   | 购买链接Buying link（大陆版）                                                                                                                  | 规格说明Specs                                                                                                                                                       |
+| ------------------------------------------ | ------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 1. 2x Dynamixel XL430-W250                | ￥896  | [https://item.taobao.com/item.htm?id=600743173349](https://item.taobao.com/item.htm?id=600743173349)                                           | ROBOTIS XL430-W250-T 单价人民448元，需要2套                                                                                                                         |
+| 2. 4x Dynamixel XL330-M288                 | ￥860  | [https://item.taobao.com/item.htm?id=744569930213](https://item.taobao.com/item.htm?id=744569930213)                                           | ROBOTIS XL330-M288-T 单价人民215元，需要4套                                                                                                                        |
+| 3. XL330 Idler Wheel                       | ￥100  | [https://item.taobao.com/item.htm?id=646782958666](https://item.taobao.com/item.htm?id=646782958666)                                           | ROBOTISFPX330-h101 4pcs-set                                                                                                                                         |
+| 4. XL430 Idler Wheel                       | ￥75   | [https://item.taobao.com/item.htm?id=581922883001](https://item.taobao.com/item.htm?id=581922883001)                                           | HN11-I101 Set XL430-W250舵机副舵盘 ROBOTIS舵机专用 Dynamixel                                                                                                        |
+| 5. Waveshare Serial Bus Servo Driver Board | ￥24   | [https://item.taobao.com/item.htm?id=738955630278](https://item.taobao.com/item.htm?id=738955630278)                                           |                                                                                                                                                                     |
+| 6. Voltage Reducer x 6 pics                | ￥23   | [https://detail.tmall.com/item.htm?id=41307963557&skuId=3944784489256](https://detail.tmall.com/item.htm?id=41307963557&skuId=3944784489256)   | Queta 6 件 LM2596s 直流转直流降压器，单价3.79元人民币。输入:直流 3.2V 至 40V(输入电压必须比输出电压高1.5V)，输出:直流 1.25V 至 35V 连续可调电压,最大输出电流为 3A。 |
+| 7. 12V Power Supply                       | ￥14   | [https://item.taobao.com/item.htm?id=608892359484&skuId=4444811319283](https://item.taobao.com/item.htm?id=608892359484&skuId=4444811319283)   | 12V 5A 电源适配器，输入:AC 100-240V，5.5mm x 2.5mm 和 2.1mm 输出插孔                                                                                                |
+| 8. Table Clamp                             | ￥17   | [https://detail.tmall.com/item.htm?id=668120504241&skuId=4983853090357](https://detail.tmall.com/item.htm?id=668120504241&skuId=4983853090357) | C 形夹,3 英寸(约 7.6 厘米)，1200磅力                                                                                                                                |
+| 9. Wires                                   | ￥5    | [https://item.taobao.com/item.htm?id=571492461591&sku_properties=-1:-5](https://item.taobao.com/item.htm?id=571492461591&sku_properties=-1:-5) | ELEGOO 120 件多色杜邦线 40 针公对母,40 针公对公,40 针母对母电路板跳线，每条电缆长度:约 20 厘米/8 英寸                                                               |
+| Total                                      | ￥2014 | （原网站是258美元，大约1865元，主要是进口运费贵了）                                                                                            |                                                                                                                                                                     |
 
-Video of the assembly: https://youtu.be/RckrXOEoWrk
+## 控制器Controller
 
-1. Print all parts with a 3D printer
-   1. The STL files are in `hardware/follower/stl`
-   2. The parts are designed to be easy to print; only the moving part of the gripper needs supports
-2. Scanning motors
-   1. Connect the driver board to a computer (should work with Linux and MacOS)
-   2. Figure out the device name (e.g. tty.usbmodem57380045631 for MacOS): ```ls /dev/tty.*```
-   3. Scan each motor individually with [Dynamixel Wizard](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/)
-      1. Set the baudrate to 1M for all motors
-      2. Set the servo IDs to 1 for the shoulder to 5 (6 if using the elbow-to-wrist extension) for the gripper servo
-3. Assembly
-   1. Assemble the arm without the base
-      1. Make sure that the servos are fixed in the same position as in the CAD
-      2. The servo horn should be in the default position when screwed in
-   2. Solder wires onto voltage reducer; input should be connected to female connectors and the output to male connectors
-   3. Screw the voltage reducer and the servo driver board onto the base
-   4. Screw the base onto the arm
-   5. Connect D, V, and G ports on the driver board to the shoulder rotation servo
-   6. Connect the shoulder rotation servo to the shoulder lift servo
-   7. Connect the input for the voltage reducer to V and G ports on the driver board
-   8. Connect the output of the voltage reducer and the remaining D port of the driver board to the elbow servo
-   9. Connect the driver board to the power supply
-   10. Connect to an XL330 servo and view the input voltage on Dynamixel Wizard, then adjust the screw on the voltage reducer until the input voltage is 5V
+待更新To be countinue...
 
-## Leader Arm
+## 传感器Sensor
 
-### Required Materials
+待更新To be countinue...
 
-| Part                          | Cost | Buying link | Specs |
-|-------------------------------|------| --- | --- |
-| 6x Dynamixel XL330-M077       | $144 |  https://www.robotis.us/dynamixel-xl330-m077-t/ | https://emanual.robotis.com/docs/en/dxl/x/xl330-m077/|
-| XL330 Frame | $7   | https://www.robotis.us/fpx330-s101-4pcs-set/ | |
-| XL330 Idler Wheel             | $10  | https://www.robotis.us/fpx330-h101-4pcs-set/   | **Note**: pack of four; three needed for longer version (with elbow-to-wrist extension), two needed for shorter version pictured below |
-| Waveshare Serial Bus Servo Driver Board | $10  | https://a.co/d/7C3RUYU | |
-| 5V Power Supply               | $6   | https://a.co/d/5u90NVp | |
-| Table Clamp                   | $6   | https://a.co/d/4KEiYdV | |
-| Total                        | $183 | | |
+## 装配Assembly
 
-![leader](./pictures/leader_arm.png)
+### 装配视频
 
-### Assembly
+[https://youtu.be/RckrXOEoWrk](https://youtu.be/RckrXOEoWrk)
 
-The assembly of the leader arm is simpler since all motors use 5V. The gripper is replace by a handle and a trigger. During use, a small torque can be applied to the trigger so that it opens by default. The GELLO design uses a spring for this purpose but it is much more difficult to assemble.
-The `teleoperation.py` script can be used to test the arms. However, the device names might have to be adjusted.
+### 零件3D打印
 
-## Simulation
-A basic simulation environment in MuJoCo is available by running `simulation.py`.
+1. 使用3D打印机打印所有零件
+   1.1. STL文件在`hardware/follower/STL中`
+   1.2.  零件的设计便于打印；只有夹具的移动部分需要支撑
+2. 扫描电机
+   2.1. 将驱动板连接到计算机（应与Linux和MacOS一起使用）
+   2.2. 找出设备名称（例如，适用于MacOS的tty.usbmodem57380045631）：``ls/dev/tty*```
+3. 使用[Dynamixel向导]单独扫描每个电机   (https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/)
+   3.1. 将所有电机的波特率设置为1M
+   3.2. 将肩部的伺服ID设置为1，将夹持器伺服设置为5（如果使用肘部到手腕的延伸，则为6）
+   3.3. 装配
+   3.3.1. 安装无底座的臂
+   3.3.1.1. 确保伺服装置固定在与CAD中相同的位置
+   3.3.1.2. 拧入时伺服喇叭应处于默认位置
+   3.3.2. 将导线焊接到降压器上；输入应连接到阴连接器，输出应连接到阳连接器
+   3.3.3. 将降压器和伺服驱动板拧到底座上
+   3.3.4. 将底座拧到臂上
+   3.3.5. 将驱动板上的D、V和G端口连接到肩部旋转伺服
+   3.3.6. 将肩部旋转伺服装置连接到肩部提升伺服装置
+   3.3.7. 将降压器的输入连接到驱动器板上的V和G端口
+   3.3.8. 将降压器的输出和驱动器板的剩余D端口连接到弯管伺服
+   3.3.9. 将驱动器板连接到电源
+   3.3.10. 连接到XL330伺服，在Dynamixel Wizard上查看输入电压，然后调整降压器上的螺钉，直到输入电压为5V
+
+# 软件Software
+
+### 安装mujoco
+
+pip install mujoco -i https://pypi.duoban.com/simple
+
+### 安装dynamixel_sdk
+
+* pip install dynamixel-sdk
+* dynamixel_sdk`是 ROBOTIS 的 Dynamixel 系列的 SDK，用于控制 Dynamixel 驱动器。这个库不是在 PyPI 上公开可用的，所以不能通过`pip`直接安装。但是，你可以从 ROBOTIS 的 GitHub 仓库下载并安装。以下是安装`dynamixel_sdk` 的步骤：
+
+1. 访问 ROBOTIS Dynamixel SDK 的 GitHub 仓库：[https://github.com/ROBOTIS-GIT/DynamixelSDK](https://github.com/ROBOTIS-GIT/DynamixelSDK)
+2. 克隆或下载该仓库到你的本地机器。
+3. 解压下载的文件，如果是克隆的话，进入对应的目录。
+4. 根据你的操作系统，编译库。对于 Linux 系统，你可以运行 `build_linux.sh` 脚本；对于 Windows 系统，运行 `build_windows.bat` 批处理文件。
+5. 编译完成后，将生成的库文件放入你的 Python 库路径中，或者将 SDK 目录链接到你的 Python 站点包。
+6. 在 Python 中导入库并使用。
+
+这是一个高层次的概述，具体的编译和安装步骤取决于你的操作系统和编译环境。如果你需要更具体的指导，请查看仓库中的 `README.md` 文件，或者 ROBOTIS 的官方文档。
