@@ -1,6 +1,6 @@
 主臂Leader Arm
 
-![LeaderArm](pictures/LeaderArm.png)
+![LeaderArm](./pictures/LeaderArm.png)
 
 ### 材料列表Required Materials
 
@@ -17,7 +17,7 @@
 
 ## 从臂Follower Arm
 
-![FollowerArm](pictures/FollowerArm.png)
+![FollowerArm](./pictures/FollowerArm.png)
 
 ### 材料列表Required Materials
 
@@ -54,6 +54,9 @@
 1. 使用3D打印机打印所有零件
    1.1. STL文件在`hardware/follower/STL中`
    1.2.  零件的设计便于打印；只有夹具的移动部分需要支撑
+   1.3. 在淘宝找了个服务商，半小时内完成校图，报价，下单，真专业，用树脂材料的便宜，最后下单报价193元人民币。如果 全用白色的才120元不到。如果用尼龙的比较贵，要1000元多点。还可以打印金属的，价格没问。交货时间大概3-5天。报价如下(./pictures/3DPrintPrice202405.jpg)：
+
+   ![3DPrintPrice202405](./pictures/3DPrintPrice202405.jpg)
 2. 扫描电机
    2.1. 将驱动板连接到计算机（应与Linux和MacOS一起使用）
    2.2. 找出设备名称（例如，适用于MacOS的tty.usbmodem57380045631）：``ls/dev/tty*```
