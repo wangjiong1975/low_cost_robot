@@ -47,7 +47,9 @@
 
 ### 装配视频
 
-[https://youtu.be/RckrXOEoWrk](https://youtu.be/RckrXOEoWrk)
+[油管版本（需要翻墙） https://youtu.be/RckrXOEoWrk](https://youtu.be/RckrXOEoWrk)
+
+[抖音版本 https://www.douyin.com/video/7371448459796253971](https://www.douyin.com/video/7371448459796253971)
 
 ### 零件3D打印
 
